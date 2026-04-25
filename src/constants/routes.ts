@@ -1,0 +1,15 @@
+export const ROUTES = {
+  LANDING: '/',
+  LOGIN: '/login',
+  ONBOARDING: '/onboarding',
+  HOME: '/home',
+  DISCOVER: '/discover',
+  LISTINGS: '/listings',
+  CONNECTIONS: '/connections',
+  MESSAGES: '/messages',
+  MESSAGE_THREAD: (swapId: string) => `/messages/${swapId}`,
+  PROFILE_ME: '/profile/me',
+  PROFILE: (userId: string) => `/profile/${userId}`,
+  NOTIFICATIONS: '/notifications',
+  SETTINGS: '/settings',
+} as const;
