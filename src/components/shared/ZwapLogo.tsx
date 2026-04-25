@@ -13,10 +13,10 @@ export const ZwapLogo = ({ className, withText = true }: { className?: string; w
     >
       <img src={logo} alt="Zwap" className="h-6 w-6" />
     </motion.div>
-    {withText && (
-      <span className="text-xl font-bold tracking-tight">
-        <span className="text-foreground">Z</span><span className="text-primary-glow">wap</span>
-      </span>
-    )}
+      {withText && (
+        <span className="font-pixel text-3xl tracking-wide leading-none">
+          <span className="text-foreground">Z</span><span className="text-primary-glow">wap</span>
+        </span>
+      )}
   </Link>
 );
