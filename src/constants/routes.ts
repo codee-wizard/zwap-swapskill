@@ -11,5 +11,6 @@ export const ROUTES = {
   PROFILE_ME: '/profile/me',
   PROFILE: (userId: string) => `/profile/${userId}`,
   NOTIFICATIONS: '/notifications',
+  RESOURCES: '/resources',
   SETTINGS: '/settings',
 } as const;

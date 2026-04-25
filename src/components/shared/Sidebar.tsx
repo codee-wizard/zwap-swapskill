@@ -1,5 +1,5 @@
 import { NavLink, Link } from 'react-router-dom';
-import { Home, Compass, ClipboardList, Users, MessageSquare, Bell, User, Settings, LogOut } from 'lucide-react';
+import { Home, Compass, ClipboardList, Users, MessageSquare, Bell, User, Settings, LogOut, BookOpen } from 'lucide-react';
 import { ROUTES } from '@/constants/routes';
 import { cn } from '@/lib/utils';
 import { ZwapLogo } from './ZwapLogo';
@@ -14,6 +14,7 @@ const items = [
   { to: ROUTES.CONNECTIONS, label: 'Connections', icon: Users },
   { to: ROUTES.MESSAGES, label: 'Messages', icon: MessageSquare },
   { to: ROUTES.NOTIFICATIONS, label: 'Notifications', icon: Bell },
+  { to: ROUTES.RESOURCES, label: 'Resources', icon: BookOpen },
   { to: ROUTES.PROFILE_ME, label: 'Profile', icon: User },
   { to: ROUTES.SETTINGS, label: 'Settings', icon: Settings },
 ];

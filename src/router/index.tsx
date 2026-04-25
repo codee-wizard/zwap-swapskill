@@ -15,6 +15,7 @@ import MessagesPage from '@/pages/Messages/Messages.page';
 import ProfilePage from '@/pages/Profile/Profile.page';
 import NotificationsPage from '@/pages/Notifications/Notifications.page';
 import SettingsPage from '@/pages/Settings/Settings.page';
+import ResourcesPage from '@/pages/Resources/Resources.page';
 import NotFound from '@/pages/NotFound';
 
 import { AppLayout } from '@/layouts/AppLayout';
@@ -50,6 +51,7 @@ export const AppRouter = () => {
         <Route path="/messages/:swapId" element={<ProtectedRoute><AppLayout><PageWrap><MessagesPage /></PageWrap></AppLayout></ProtectedRoute>} />
         <Route path="/profile/:userId" element={<ProtectedRoute><AppLayout><PageWrap><ProfilePage /></PageWrap></AppLayout></ProtectedRoute>} />
         <Route path={ROUTES.NOTIFICATIONS} element={<ProtectedRoute><AppLayout><PageWrap><NotificationsPage /></PageWrap></AppLayout></ProtectedRoute>} />
+        <Route path={ROUTES.RESOURCES} element={<ProtectedRoute><AppLayout><PageWrap><ResourcesPage /></PageWrap></AppLayout></ProtectedRoute>} />
         <Route path={ROUTES.SETTINGS} element={<ProtectedRoute><AppLayout><PageWrap><SettingsPage /></PageWrap></AppLayout></ProtectedRoute>} />
 
         <Route path="*" element={<NotFound />} />
