@@ -16,7 +16,7 @@ import { ROUTES } from '@/constants/routes';
 import { formatRelative } from '@/utils/formatters';
 
 const SwapRow = ({ swap, onComplete }: { swap: Swap; onComplete?: () => void }) => {
-  const me = swap.participants[0];
+  
   const them = swap.participants[1];
   return (
     <Card className="bg-gradient-card border-border p-5 hover:border-primary/40 transition-colors">
