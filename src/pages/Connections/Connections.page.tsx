@@ -59,7 +59,6 @@ const SwapRow = ({ swap, onComplete }: { swap: Swap; onComplete?: () => void }) 
           )}
         </div>
       </div>
-      {void me; null}
     </Card>
   );
 };
