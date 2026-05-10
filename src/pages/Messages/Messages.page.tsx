@@ -17,6 +17,7 @@ const MessagesPage = () => {
   const [convs, setConvs] = useState<Conversation[] | null>(null);
   const [messages, setMessages] = useState<Message[] | null>(null);
   const [text, setText] = useState('');
+  const [isSending, setIsSending] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { getConversations().then(setConvs); }, []);
@@ -31,10 +32,15 @@ const MessagesPage = () => {
   }, [messages]);
 
   const send = async () => {
-    if (!text.trim() || !swapId) return;
-    const msg = await sendMessage(swapId, text.trim());
-    setMessages(prev => prev ? [...prev, msg] : [msg]);
-    setText('');
+    if (!text.trim() || !swapId || isSending) return;
+    setIsSending(true);
+    try {
+      const msg = await sendMessage(swapId, text.trim());
+      setMessages(prev => prev ? [...prev, msg] : [msg]);
+      setText('');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const active = convs?.find(c => c.swapId === swapId) ?? convs?.[0];
@@ -107,11 +113,22 @@ const MessagesPage = () => {
         {swapId && (
           <div className="p-3 border-t border-border bg-background">
             <div className="flex items-center gap-2">
-              <Input value={text} onChange={e => setText(e.target.value)} placeholder="Type a message…"
-                onKeyDown={e => { if (e.key === 'Enter') send(); }}
-                className="bg-card border-border"
+              <Input 
+                value={text} 
+                onChange={e => setText(e.target.value)} 
+                placeholder="Type a message…"
+                disabled={isSending}
+                onKeyDown={e => { 
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    send();
+                  }
+                }}
+                className="bg-card border-border disabled:opacity-50"
               />
-              <Button onClick={send} className="bg-primary hover:bg-primary-hover" size="icon"><Send className="h-4 w-4" /></Button>
+              <Button disabled={isSending} onClick={send} className="bg-primary hover:bg-primary-hover disabled:opacity-50" size="icon">
+                <Send className="h-4 w-4" />
+              </Button>
             </div>
           </div>
         )}
