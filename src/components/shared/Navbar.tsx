@@ -45,7 +45,7 @@ export const Navbar = ({ landing = false }: { landing?: boolean }) => {
           </nav>
           <div className="flex items-center gap-2">
             {isAuthenticated ? (
-              <Link to={ROUTES.HOME}><Button className="bg-primary hover:bg-primary-hover">Open app</Button></Link>
+              <Link to={ROUTES.DASHBOARD}><Button className="bg-primary hover:bg-primary-hover">Open app</Button></Link>
             ) : (
               <>
                 <Link to={ROUTES.LOGIN}><Button variant="ghost">Sign in</Button></Link>
